@@ -59,5 +59,6 @@ public class ConsoleMenu {
             }
             System.out.println();
         }
+        scanner.close();
     }
 }
