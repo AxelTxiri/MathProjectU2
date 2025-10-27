@@ -1,6 +1,9 @@
 package view;
 import java.util.Scanner;
 
+import model.LinearSolver;
+import model.CuadraticSolver;
+
 public class ConsoleMenu {
     public static void showMenu() {
         int option = 0;
@@ -21,11 +24,32 @@ public class ConsoleMenu {
             switch (option) {
                 case 1:
                     System.out.println("You selected First Grade Ecuations.");
-                    // Call method to handle first grade equations
+                    System.out.println();
+                    System.out.println("You need to enter the equation in the form ax + b = c:");
+
+                    System.out.println("Enter the equation:");
+                    scanner.nextLine();
+                    String equation = scanner.nextLine();
+                    System.out.println();
+
+                    LinearSolver linearSolver = new LinearSolver();
+                    linearSolver.solveLinearEquation(equation);
                     break;
                 case 2:
                     System.out.println("You selected Second Grade Ecuations.");
-                    // Call method to handle second grade equations
+                    System.out.println();
+                    System.out.println("You need to enter the coefficients a, b, and c for the equation ax^2 + bx + c = 0:");
+
+                    System.out.println("Enter coefficient a:");
+                    int a = scanner.nextInt();
+                    System.out.println("Enter coefficient b:");
+                    int b = scanner.nextInt();
+                    System.out.println("Enter coefficient c:");
+                    int c = scanner.nextInt();
+                    System.out.println();
+
+                    CuadraticSolver cuadraticSolver = new CuadraticSolver();
+                    cuadraticSolver.solveQuadraticEquation(a, b, c);
                     break;
                 case 3:
                     System.out.println("Exiting the program. Goodbye!");
